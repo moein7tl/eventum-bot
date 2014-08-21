@@ -6,3 +6,12 @@ Customer:
     AMPQ_BACKOFF_TIME:                  1000
     
     RABBITMQ_QUEUE:                     ""
+    
+    CRON_JOB_PATTERN:                   "0 0 */4 * * *"          
+    CRON_JOB_TIMEZONE:                  "Asia/Tehran"
+
+    MONGODB_STRING:                     "mongodb://localhost/eventum"
+    
+    HEADER_FROM:                        "From: Eventum.ir <events@eventum.ir>"
+    HEADER_RETURN_PATH:                 "Return-Path: events@eventum.ir"
+    EMAIL_SUBJECT:                      "دعوت به اطلاع رسانی رویداد شما"
