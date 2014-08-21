@@ -1,6 +1,12 @@
 Customer:
 
     AMPQ_URL:                           "amqp://localhost"
+    
+    AMPQ_HOST:                          "localhost"
+    AMPQ_AMPQ_PORT:                     5672
+    AMPQ_USER:                          "guest"
+    AMPQ_PASSWORD:                      "guest"
+    
     AMPQ_RECONNECT:                     true
     AMPQ_RECONNECT_STRATEGY:            "linear"
     AMPQ_BACKOFF_TIME:                  1000

@@ -1,8 +1,19 @@
 var amqp               =   require('amqp'),brokerConnection,exchange,queue;
 module.exports  =   function(_C,undefined){    
     var firstOption         =   {
-            url:                        _C.AMPQ_URL,
-        },
+            host:                       _C.AMPQ_HOST,
+            port:                       _C.AMPQ_PORT,
+            login:                      _C.AMPQ_USER,
+            password:                   _C.AMPQ_PASSWORD,
+            connectionTimeout:          0,
+            authMechanism:              'AMQPLAIN',
+            vhost:                      '/',
+            noDelay:                    true,
+            ssl: { 
+                    enabled : false
+                }
+            },            
+        
         secondOption        =   {
             reconnect:                  _C.AMPQ_RECONNECT,
             reconnectBackoffStrategy:   _C.AMPQ_RECONNECT_STRATEGY,
