@@ -37,15 +37,15 @@ module.exports  =   function(_C,connection,broker,undefined){
     function invite(email,url){
         var headers  = "MIME-Version: 1.0" + "\r\n";
         headers     += "Content-type:text/html;charset=UTF-8" + "\r\n";
-        headers     += "{" + _C.HEADER_FROM  + "}\r\n";
-        headers     += "{" + _C.HEADER_RETURN_PATH + "}\r\n";
-        headers     += "To: {" + email + "}\r\n";
+        headers     += _C.HEADER_FROM  + "\r\n";
+        headers     += _C.HEADER_RETURN_PATH + "\r\n";
+        headers     += "To: " + email + "\r\n";
 
         var content =   {
             'to'        :   email,
             'subject'   :   _C.EMAIL_SUBJECT,
             'body'      :   swig.renderFile('./template/invite.html'),
-            'header'    :   headers
+            'headers'   :   headers
         };
         
         broker.publish(JSON.stringify(content));
