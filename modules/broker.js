@@ -8,24 +8,27 @@ module.exports  =   function(_C,undefined){
             reconnectBackoffStrategy:   _C.AMPQ_RECONNECT_STRATEGY,
             reconnectBackoffTime:       _C.AMPQ_BACKOFF_TIME,
         };
+        
     if (!brokerConnection) brokerConnection    =   amqp.createConnection(firstOption,secondOption);
     
     brokerConnection.on('ready',function(){
+        console.log('Broker is ready');
         exchange    =   brokerConnection.exchange('');
         brokerConnection.queue(_C.RABBITMQ_QUEUE, { durable: true }, function(q) { 
             queue   =   q;
         });
     });
     
+    
     function publish(msg){
         if (exchange){
-            exchange.publish(queue, { body: msg }); 
+            exchange.publish(_C.RABBITMQ_QUEUE, msg,{deliveryMode: 2}); 
         }
     }
     
     function subscribe(callback){
         if (queue){
-            queue.subscribe(callback);
+            queue.subscribe({ack: true, prefetchCount: 1},callback);
         }    
     }
     
