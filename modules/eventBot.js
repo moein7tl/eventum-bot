@@ -3,7 +3,6 @@ var mongoose = require('mongoose')
    ,ObjectId = Schema.ObjectId;
  
 var eventBotSchema = new Schema({
-    _id:    ObjectId,
     date:   {type: Date, default: Date.now},
     url:    String, 
     email:  String
