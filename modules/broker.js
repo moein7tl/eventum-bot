@@ -15,11 +15,15 @@ module.exports  =   function(_C,undefined){
     brokerConnection.on('ready',function(){
         console.log('Broker is ready');
         exchange    =   brokerConnection.exchange('');
-        brokerConnection.queue(_C.RABBITMQ_QUEUE, { durable: true }, function(q) { 
+        brokerConnection.queue(_C.RABBITMQ_QUEUE, {passive:false, durable: true,exclusive:false,autoDelete:false }, function(q) { 
             queue   =   q;
         });
     });
-        
+    
+    brokerConnection.on('close',function (){
+        console.log("Broker is not ready");
+    });
+    
     function publish(msg){
         if (exchange){
             exchange.publish(_C.RABBITMQ_QUEUE, msg,{deliveryMode: 2}); 
