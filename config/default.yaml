@@ -5,7 +5,7 @@ Customer:
     AMPQ_RECONNECT_STRATEGY:            "linear"
     AMPQ_BACKOFF_TIME:                  1000
     
-    RABBITMQ_QUEUE:                     ""
+    RABBITMQ_QUEUE:                     "MAIL_CHANNEL"
     
     CRON_JOB_PATTERN:                   "0 0 */4 * * *"          
     CRON_JOB_TIMEZONE:                  "Asia/Tehran"
@@ -15,3 +15,5 @@ Customer:
     HEADER_FROM:                        "From: Eventum.ir <events@eventum.ir>"
     HEADER_RETURN_PATH:                 "Return-Path: events@eventum.ir"
     EMAIL_SUBJECT:                      "دعوت به اطلاع رسانی رویداد شما"
+    
+    TIME_THRESHOLD:                     604800000
