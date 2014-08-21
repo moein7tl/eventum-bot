@@ -1,0 +1,33 @@
+{
+    "name": "eventum-bot",
+    "description": "",
+    "version": "0.0.1",
+    "main": "./eventum-bot.js",
+    "author": {
+        "name": "Mohammad Moein Hosseini Manesh",
+        "email": "moein7tl@gmail.com"
+    },
+    "keywords": ["email","cron","events"],
+    "licenses": {
+        "type": "none"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/moein7tl/eventum-bot.git"
+    },
+    "bugs": {
+        "url": "http://github.com/moein7tl/eventum-bot/issues"
+    },
+    "dependencies": {
+        "mongoose": "*",
+        "cron":"*",
+        "time":"*",
+        "amqp":"*",
+        "winston":"*",
+        "config":"*",
+        "simply-deferred":"*",
+        "yaml":"*",
+        "email-extractor":"*",
+        "swig":"*"
+    }
+}
